@@ -3,6 +3,7 @@ import './App.css'
 import Dashboard from './pages/dashboard/Dashboard';
 import Products from './pages/products/Products';
 import Sidebar from './components/sidebar/Sidebar';
+// import Header from './components/header/Header';
 
 function App({name}) {
   console.log(name);
