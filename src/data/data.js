@@ -4,7 +4,7 @@ import { FaUsers,FaDollarSign,FaShoppingCart  } from "react-icons/fa";
 import { GrAnalytics } from "react-icons/gr";
 import { IoMdSettings } from "react-icons/io";
 export const SIDEBAR_ITEMS = [
-    { name: "Overview", Icon: FaChartSimple, color: "#6366f1", href: "/", size:15 },
+    { name: "Overview", Icon: FaChartSimple, color: "#6366f1", href: "/dashboard", size:15 },
     { name: "Products", Icon: IoBagHandleSharp, color: "#8B5CF6", href: "/product", size:15 },
     { name: "Users", Icon: FaUsers , color: "#EC4899", href: "/users", size:15 },
     { name: "Sales", Icon: FaDollarSign, color: "#10B981", href: "/sales", size:15 },
