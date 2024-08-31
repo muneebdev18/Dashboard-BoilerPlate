@@ -38,7 +38,7 @@ const LineChartOverview = () => {
 							itemStyle={{ color: "#E5E7EB" }}
 						/>
 						<Line
-							type='monotone'
+							type='monotoneX'
 							dataKey='sales'
 							stroke='#6366F1'
 							strokeWidth={3}
