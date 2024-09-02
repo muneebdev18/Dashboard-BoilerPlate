@@ -7,7 +7,7 @@ import { FaSearch, FaShoppingCart } from "react-icons/fa";
 import { MdSell,MdDeleteForever } from "react-icons/md";
 import { IoMdStats } from "react-icons/io";
 import { BiSolidEdit } from "react-icons/bi";
-
+import Footer from '../../components/footer/Footer'
 // import styles from './style.module.css'
 const Products = () => {
   const PRODUCT_DATA = [{
@@ -126,7 +126,7 @@ const Products = () => {
           />
         </motion.div>
         {/*-------- Table Section ------- */}
-        <motion.div initial={{opacity:0,y:30}} animate={{opacity:1,y:0}} transition={{duration:0.7,delay:0.5}} className="h-[810px] bg-gray-800 bg-opacity-50 backdrop-blur-md shadow-lg rounded-xl px-6 pt-5 pb-11 border border-gray-700">
+        <motion.div initial={{opacity:0,y:30}} animate={{opacity:1,y:0}} transition={{duration:0.7,delay:0.5}} className="h-[880px] bg-gray-800 bg-opacity-50 backdrop-blur-md shadow-lg rounded-xl px-6 pt-5 pb-11 border border-gray-700">
           {/* ------- Table Header ------- */}
           <div className="flex justify-between items-center">
             <p className="text-2xl font-medium">Products List</p>
@@ -171,7 +171,7 @@ const Products = () => {
                 {/* ------- Table Row ------- */}
             {PRODUCT_DATA.map((item)=>{
               return(
-                <tr>
+                <tr className="space-y-2">
                 <td className="px-6 py-4 text-sm text-gray-100 border-b border-gray-700">
                   {item.id}
                 </td>
@@ -186,7 +186,7 @@ const Products = () => {
                 </td>
                 <td className="px-6 py-4 text-sm text-gray-100 border-b border-gray-700">{item.quantity}</td>
                 <td className="px-6 py-4 text-sm text-gray-100 border-b border-gray-700">{item.status}</td>
-                <td className="px-6 py-4 text-sm text-gray-100 border-b border-gray-700 flex gap-1"><BiSolidEdit size={22} color="#6366f1" className="cursor-pointer"/><MdDeleteForever size={22} color="#ff0000" className="cursor-pointer"/></td>
+                <td className="px-6 py-4 text-sm text-gray-100 border-b border-gray-700 flex items-center gap-1 mb-6"><BiSolidEdit size={25} color="#6366f1" className="cursor-pointer"/><MdDeleteForever size={25} color="#ff0000" className="cursor-pointer"/></td>
                 </tr>
               )
             })}
@@ -196,6 +196,8 @@ const Products = () => {
           </div>
         </motion.div>
       </div>
+        {/* ------ Footer ------ */}
+        <Footer/>
     </div>
   );
 };
