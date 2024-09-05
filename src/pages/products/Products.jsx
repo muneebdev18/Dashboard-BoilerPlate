@@ -1,94 +1,104 @@
-// Add Loader and Length = 0 then No Item and Pagination
-
 import Header from "../../components/header/Header";
 import StatsCard from "../../components/statsCard/StatsCard";
 import { motion } from "framer-motion";
 import { FaSearch, FaShoppingCart } from "react-icons/fa";
-import { MdSell,MdDeleteForever } from "react-icons/md";
+import { MdSell, MdDeleteForever } from "react-icons/md";
 import { IoMdStats } from "react-icons/io";
 import { BiSolidEdit } from "react-icons/bi";
 import Footer from '../../components/footer/Footer'
+import Loader from "../../components/loader/Loader";
+import Pagination from "../../components/pagination/Pagination";
+import DeleteModal from "../../components/modals/DeleteModal";
+import { useState } from "react";
 // import styles from './style.module.css'
 const Products = () => {
   const PRODUCT_DATA = [{
-    id:1,
+    id: 1,
     name: "Product 1",
     price: "$150",
     quantity: 50,
-    category:"Electronics",
+    category: "Electronics",
     status: "Active"
   },
   {
-    id:2,
+    id: 2,
     name: "Product 2",
     price: "$150",
     quantity: 10,
-    category:"Electronics",
+    category: "Electronics",
     status: "Active"
   },
   {
-    id:3,
+    id: 3,
     name: "Product 3",
     price: "$150",
     quantity: 20,
-    category:"Electronics",
+    category: "Electronics",
     status: "Active"
   },
   {
-    id:4,
+    id: 4,
     name: "Product 4",
     price: "$150",
     quantity: 150,
-    category:"Electronics",
+    category: "Electronics",
     status: "Active"
   },
   {
-    id:5,
+    id: 5,
     name: "Product 5",
     price: "$250",
     quantity: 70,
-    category:"Electronics",
+    category: "Electronics",
     status: "Active"
-  },{
-    id:6,
+  }, {
+    id: 6,
     name: "Product 6",
     price: "$20",
     quantity: 40,
     status: "Active"
   },
   {
-    id:7,
+    id: 7,
     name: "Product 7",
     price: "$15",
     quantity: 540,
-    category:"Electronics",
+    category: "Electronics",
     status: "Active"
   },
   {
-    id:8,
+    id: 8,
     name: "Product 6",
     price: "$20",
     quantity: 40,
     status: "Active"
   },
   {
-    id:9,
+    id: 9,
     name: "Product 7",
     price: "$15",
     quantity: 540,
-    category:"Electronics",
+    category: "Electronics",
     status: "Active"
   },
   {
-    id:10,
+    id: 10,
     name: "Product 6",
     price: "$20",
     quantity: 40,
     status: "Active"
   },
 
-]
-
+  ]
+  const [activeModal,setActiveModal] = useState(false)
+  // ---------LOADER STYLE -----------
+  const loaderStyle = {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: '100vh',
+    width: "100%"
+  }
   return (
     <div className="w-full flex flex-col min-h-screen relative">
       <Header title={"Products"} />
@@ -126,7 +136,7 @@ const Products = () => {
           />
         </motion.div>
         {/*-------- Table Section ------- */}
-        <motion.div initial={{opacity:0,y:30}} animate={{opacity:1,y:0}} transition={{duration:0.7,delay:0.5}} className="h-[880px] bg-gray-800 bg-opacity-50 backdrop-blur-md shadow-lg rounded-xl px-6 pt-5 pb-11 border border-gray-700">
+        <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.5 }} className="h-[880px] bg-gray-800 bg-opacity-50 backdrop-blur-md shadow-lg rounded-xl px-6 pt-5 pb-11 border border-gray-700 overflow-y-hidden">
           {/* ------- Table Header ------- */}
           <div className="flex justify-between items-center">
             <p className="text-2xl font-medium">Products List</p>
@@ -169,35 +179,61 @@ const Products = () => {
               </thead>
               <tbody>
                 {/* ------- Table Row ------- */}
-            {PRODUCT_DATA.map((item)=>{
-              return(
-                <tr className="space-y-2">
-                <td className="px-6 py-4 text-sm text-gray-100 border-b border-gray-700">
-                  {item.id}
-                </td>
-                <td className="px-6 py-4 text-sm text-gray-100 border-b border-gray-700">
-                  {item.name}
-                </td>
-                <td className="px-6 py-4 text-sm text-gray-100 border-b border-gray-700">
-                  {item.price}
-                </td>
-                <td className="px-6 py-4 text-sm text-gray-100 border-b border-gray-700">
-                  {item.quantity}
-                </td>
-                <td className="px-6 py-4 text-sm text-gray-100 border-b border-gray-700">{item.quantity}</td>
-                <td className="px-6 py-4 text-sm text-gray-100 border-b border-gray-700">{item.status}</td>
-                <td className="px-6 py-4 text-sm text-gray-100 border-b border-gray-700 flex items-center gap-1 mb-6"><BiSolidEdit size={25} color="#6366f1" className="cursor-pointer"/><MdDeleteForever size={25} color="#ff0000" className="cursor-pointer"/></td>
-                </tr>
-              )
-            })}
-               
+                {PRODUCT_DATA.map((item, index) => {
+                  return (
+                    <tr key={index} className="space-y-2">
+                      <td className="px-6 py-4 text-sm text-gray-100 border-b border-gray-700">
+                        {item.id}
+                      </td>
+                      <td className="px-6 py-4 text-sm text-gray-100 border-b border-gray-700">
+                        {item.name}
+                      </td>
+                      <td className="px-6 py-4 text-sm text-gray-100 border-b border-gray-700">
+                        {item.price}
+                      </td>
+                      <td className="px-6 py-4 text-sm text-gray-100 border-b border-gray-700">
+                        {item.quantity}
+                      </td>
+                      <td className="px-6 py-4 text-sm text-gray-100 border-b border-gray-700">{item.quantity}</td>
+                      <td className="px-6 py-4 text-sm text-gray-100 border-b border-gray-700">{item.status}</td>
+                      <td className="px-6 py-4 text-sm text-gray-100 border-b border-gray-700 flex items-center gap-1 mb-6"><BiSolidEdit size={25} color="#6366f1" className="cursor-pointer" /><MdDeleteForever onClick={()=>setActiveModal(true)} size={25} color="#ff0000" className="cursor-pointer" /></td>
+                    </tr>
+                  )
+                })}
+                {/* -------- If isLoading is true then, To View and Center the Loader --------- */}
+                {/* <tr className="overflow-y-hidden">
+                  <td colSpan="7" className="text-center align-middle py-10">
+                    <Loader loaderStyle={loaderStyle} />
+                  </td>
+                </tr> */}
+                
               </tbody>
             </table>
           </div>
+          {/*---------- Pagination ---------- */}
+          <div className="flex flex-col md:flex-row mt-5 justify-between items-center gap-3 text-[11px]">
+              <p className=" text-gray-100 text-[15px]">
+                {/* {firstPostIndex + 1}-{lastPostIndex} of {UserData.length} */}
+                1 - 10 of 20
+              </p>
+                  {/* Add Pagination When do API Integration */}
+
+              <div className="flex sm:flex-row xsm:flex-col space-x-4">
+                <Pagination
+                  // totalPost={UserData.length}
+                  // postPerPage={postPerPage}
+                  // setCurrentPage={setCurrentPage}
+                  // currentPage={currentPage}
+                />
+              </div>
+            </div>
+            
         </motion.div>
+        {/* ------- Modal for Delete Product ------- */}
+        {activeModal && <DeleteModal activeModal={activeModal} setActiveModal = {setActiveModal} /> }
       </div>
-        {/* ------ Footer ------ */}
-        <Footer/>
+      {/* ------ Footer ------ */}
+      <Footer />
     </div>
   );
 };
