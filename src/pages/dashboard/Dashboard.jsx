@@ -6,8 +6,14 @@ import { IoMdStats } from "react-icons/io";
 import LineChartOverview from "../../components/lineChart/LineChartOverview";
 import PieChartDist from "../../components/pieChart/PieChartDist";
 import Footer from "../../components/footer/Footer";
+import { useEffect } from "react";
 
 const Dashboard = () => {
+
+   //  --- NEW PAGE ALWAYS RENDER FROM TOP(1st Section) ------
+ useEffect(() => {
+  window.scroll(0, 0);
+}, []);
   return (
     <div className="w-full flex flex-col min-h-screen relative">
       <Header title={"Dashboard"} />

@@ -13,7 +13,7 @@ const NewPassword = () => {
     });
   return (
     <motion.div initial={{opacity:0,y:0}} animate={{opacity:1,y:-30}} transition={{duration:1.1,delay:0.3}} className="flex flex-row justify-center items-center min-h-screen  text-white">
-            <div className="xl:w-1/2 lg:w-2/3 md:w-full px-8 py-16 flex flex-col justify-center">
+            <div className="xl:w-1/2 lg:w-2/3 md:w-full px-8 py-16 flex flex-col justify-center  bg-white/10 backdrop-blur-lg border border-white/20 rounded-lg shadow-lg">
                 <h1 className="text-4xl font-semibold mb-2 text-white">
                    Set up a new Password
                 </h1>
@@ -29,7 +29,7 @@ const NewPassword = () => {
                         <label className="text-white text-lg ">Password</label>
                         <input
                             type={values.showPassword ? "text" : "password"}
-                            className="mt-2 w-full text-lg p-4 rounded-md bg-gray-800 text-white placeholder-gray-500 focus:ring-2 focus:ring-purple-500"
+                            className="mt-2 w-full text-lg p-4 rounded-md bg-gray-900 text-white placeholder-gray-500 focus:ring-2 focus:ring-purple-500"
                             placeholder="Enter Password"
                             value={values.password}
                             onChange={(e) =>
@@ -51,7 +51,7 @@ const NewPassword = () => {
                         <label className="text-white text-lg ">Confirm Password</label>
                         <input
                             type={values.showconfPassword ? "text" : "password"}
-                            className="mt-2 w-full text-lg p-4 rounded-md bg-gray-800 text-white placeholder-gray-500 focus:ring-2 focus:ring-purple-500"
+                            className="mt-2 w-full text-lg p-4 rounded-md bg-gray-900 text-white placeholder-gray-500 focus:ring-2 focus:ring-purple-500"
                             placeholder="Enter Password"
                             value={values.confPassword}
                             onChange={(e) =>

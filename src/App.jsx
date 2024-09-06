@@ -10,6 +10,8 @@ import ForgotPassword from './pages/auth/ForgotPassword';
 import OTPVerification from './pages/auth/OTPVerification';
 import NewPassword from './pages/auth/NewPassword';
 import Success from './pages/auth/Success';
+import Users from './pages/users/Users';
+import Settings from './pages/settings/Settings';
 function App() {
   const location = useLocation();
 
@@ -32,6 +34,9 @@ function App() {
           <Route path='/auth/success' element={<Success/>}/>
           <Route path='/dashboard' element={<Dashboard/>} />
           <Route path='/product' element={<Products />} />
+          <Route path='/users' element={<Users />} />
+          <Route path='/settings' element={<Settings />} />
+
         </Routes>
       </div>
     </div>

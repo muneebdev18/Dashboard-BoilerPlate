@@ -9,7 +9,8 @@ import Footer from '../../components/footer/Footer'
 import Loader from "../../components/loader/Loader";
 import Pagination from "../../components/pagination/Pagination";
 import DeleteModal from "../../components/modals/DeleteModal";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import LineChartOverview from "../../components/lineChart/LineChartOverview";
 // import styles from './style.module.css'
 const Products = () => {
   const PRODUCT_DATA = [{
@@ -99,6 +100,10 @@ const Products = () => {
     height: '100vh',
     width: "100%"
   }
+     //  --- NEW PAGE ALWAYS RENDER FROM TOP(1st Section) ------
+ useEffect(() => {
+  window.scroll(0, 0);
+}, []);
   return (
     <div className="w-full flex flex-col min-h-screen relative">
       <Header title={"Products"} />
@@ -136,7 +141,7 @@ const Products = () => {
           />
         </motion.div>
         {/*-------- Table Section ------- */}
-        <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.5 }} className="h-[880px] bg-gray-800 bg-opacity-50 backdrop-blur-md shadow-lg rounded-xl px-6 pt-5 pb-11 border border-gray-700 overflow-y-hidden">
+        <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.5 }} className="h-[820px] bg-gray-800 bg-opacity-50 backdrop-blur-md shadow-lg rounded-xl px-6 pt-5 pb-11 border border-gray-700 overflow-y-hidden">
           {/* ------- Table Header ------- */}
           <div className="flex justify-between items-center">
             <p className="text-2xl font-medium">Products List</p>
@@ -196,7 +201,12 @@ const Products = () => {
                       </td>
                       <td className="px-6 py-4 text-sm text-gray-100 border-b border-gray-700">{item.quantity}</td>
                       <td className="px-6 py-4 text-sm text-gray-100 border-b border-gray-700">{item.status}</td>
-                      <td className="px-6 py-4 text-sm text-gray-100 border-b border-gray-700 flex items-center gap-1 mb-6"><BiSolidEdit size={25} color="#6366f1" className="cursor-pointer" /><MdDeleteForever onClick={()=>setActiveModal(true)} size={25} color="#ff0000" className="cursor-pointer" /></td>
+                      <td className="px-6 py-4 text-sm text-gray-100 border-b border-gray-700 ">
+                        <div className="flex items-center gap-1">
+                        <BiSolidEdit size={25} color="#6366f1" className="cursor-pointer" />
+                        <MdDeleteForever onClick={()=>setActiveModal(true)} size={25} color="#ff0000" className="cursor-pointer" />
+                        </div>
+                        </td>
                     </tr>
                   )
                 })}
@@ -230,7 +240,10 @@ const Products = () => {
             
         </motion.div>
         {/* ------- Modal for Delete Product ------- */}
-        {activeModal && <DeleteModal activeModal={activeModal} setActiveModal = {setActiveModal} /> }
+        {activeModal && <DeleteModal title="Product" activeModal={activeModal} setActiveModal = {setActiveModal} /> }
+        <div className="grid grid-col-1 my-8">
+                <LineChartOverview/>
+                </div>
       </div>
       {/* ------ Footer ------ */}
       <Footer />
