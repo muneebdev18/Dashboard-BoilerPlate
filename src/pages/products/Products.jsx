@@ -8,8 +8,12 @@ import { MdSell,MdDeleteForever } from "react-icons/md";
 import { IoMdStats } from "react-icons/io";
 import { BiSolidEdit } from "react-icons/bi";
 import Footer from '../../components/footer/Footer'
+import Pagination from "../../components/pagination/Pagination";
+import { useState } from "react";
+import DeleteModal from "../../components/modals/DeleteModal"
 // import styles from './style.module.css'
 const Products = () => {
+  const [activeModal,setActiveModal] = useState(false)
   const PRODUCT_DATA = [{
     id:1,
     name: "Product 1",
@@ -169,9 +173,9 @@ const Products = () => {
               </thead>
               <tbody>
                 {/* ------- Table Row ------- */}
-            {PRODUCT_DATA.map((item)=>{
+            {PRODUCT_DATA.map((item,key)=>{
               return(
-                <tr className="space-y-2">
+                <tr key={key} className="space-y-2">
                 <td className="px-6 py-4 text-sm text-gray-100 border-b border-gray-700">
                   {item.id}
                 </td>
@@ -186,17 +190,47 @@ const Products = () => {
                 </td>
                 <td className="px-6 py-4 text-sm text-gray-100 border-b border-gray-700">{item.quantity}</td>
                 <td className="px-6 py-4 text-sm text-gray-100 border-b border-gray-700">{item.status}</td>
-                <td className="px-6 py-4 text-sm text-gray-100 border-b border-gray-700 flex items-center gap-1 mb-6"><BiSolidEdit size={25} color="#6366f1" className="cursor-pointer"/><MdDeleteForever size={25} color="#ff0000" className="cursor-pointer"/></td>
+                <td className="px-6 py-4 text-sm text-gray-100 border-b border-gray-700 ">
+                                                
+                                                <div className="flex items-center gap-1">
+                                                <BiSolidEdit size={25} color="#6366f1" className="cursor-pointer" />
+                                                <MdDeleteForever  onClick={()=>setActiveModal(true)}  size={25} color="#ff0000" className="cursor-pointer" />
+                                                </div>
+                                            </td>
                 </tr>
               )
             })}
-               
+                 {/* -------- If isLoading is true then, To View and Center the Loader --------- */}
+                                {/* <tr className="overflow-y-hidden">
+                <td colSpan="7" className="text-center align-middle py-10">
+                  <Loader loaderStyle={loaderStyle} />
+                </td>
+              </tr> */}
               </tbody>
             </table>
+            
           </div>
+          <div className="flex flex-col md:flex-row mt-5 justify-between items-center gap-3 text-[11px]">
+                        <p className=" text-gray-100 text-[15px]">
+                            {/* {firstPostIndex + 1}-{lastPostIndex} of {UserData.length} */}
+                            1 - 10 of 20
+                        </p>
+                        {/* Add Pagination When do API Integration */}
+
+                        <div className="flex sm:flex-row xsm:flex-col space-x-4">
+                            <Pagination
+                            // totalPost={UserData.length}
+                            // postPerPage={postPerPage}
+                            // setCurrentPage={setCurrentPage}
+                            // currentPage={currentPage}
+                            />
+                        </div>
+                    </div>
         </motion.div>
+         {/* ------- Modal for Delete Product ------- */}
+         {activeModal && <DeleteModal title="User" activeModal={activeModal} setActiveModal = {setActiveModal} /> }
       </div>
-        
+        <Footer/>
     </div>
   );
 };

@@ -16,9 +16,9 @@ const Login = () => {
       initial={{ opacity: 0, y: 0 }}
       animate={{ opacity: 1, y: -30 }}
       transition={{ duration: 1.1, delay: 0.3 }}
-      className="flex flex-row justify-center items-center min-h-screen text-white"
+      className="flex  justify-center items-center h-screen text-white"
     >
-      <div className="xl:w-1/2 lg:w-2/3 md:w-full px-8 py-16 flex flex-col justify-center bg-white/10 backdrop-blur-lg border border-white/20 rounded-lg shadow-lg">
+      <div className="xl:w-1/2 md:w-[500px] px-8 py-8 flex flex-col justify-center bg-white/10 backdrop-blur-lg border border-white/20 rounded-lg shadow-lg">
         <h1 className="text-4xl font-semibold mb-2 text-white">
           The Split Dashboard
         </h1>

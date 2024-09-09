@@ -7,7 +7,7 @@ const OTPVerification = () => {
 
   return (
     <motion.div initial={{opacity:0,y:0}} animate={{opacity:1,y:-30}} transition={{duration:1.1,delay:0.3}} className="flex flex-row justify-center items-center min-h-screen bg-gray-900 text-white">
-      <div className="xl:w-1/2 lg:w-2/3 md:w-full px-8 py-20 flex flex-col items-center justify-center   bg-white/10 backdrop-blur-lg border border-white/20 rounded-lg shadow-lg ">
+      <div className="xl:w-1/2 md:w-[500px] px-8 py-8 flex flex-col justify-center bg-white/10 backdrop-blur-lg border border-white/20 rounded-lg shadow-lg">
         <h1 className="text-4xl font-semibold mb-2 text-white">OTP Verification</h1>
         <p className="text-lg text-gray-400 mb-8">Enter the OTP sent to your email.</p>
 
@@ -23,8 +23,8 @@ const OTPVerification = () => {
               inputStyle={{
                 display: "flex",
                 justifyContent: "space-between",
-                width: "5rem",
-                height: "5rem",
+                width: "4.7rem",
+                height: "4.5rem",
                 margin: "0 0.5rem",
                 fontSize: "1.5rem",
                 borderRadius: "0.375rem",

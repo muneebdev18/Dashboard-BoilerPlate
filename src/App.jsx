@@ -16,21 +16,11 @@ import NotFound from './pages/notFound/NotFound';
 function App() {
   const location = useLocation();
 
-  // List of routes where Sidebar should be hidden
-  const noSidebarRoutes = [
-    '/',
-    '/auth/login', 
-    '/auth/forgotpassword', 
-    '/auth/otpverification', 
-    '/auth/newpassword', 
-    '/auth/success'
-  ];
+  // List of routes where Sidebar should be visible
+  const sidebarRoutes = ['/dashboard', '/product', '/users', '/settings'];
 
-  // Check if the current location matches any route where the Sidebar should be hidden
-  const isNotFoundPage = location.pathname === '*' || !['/', ...noSidebarRoutes].includes(location.pathname);
-
-  // Condition to hide Sidebar for specific routes and for the NotFound page
-  const isSidebarVisible = !(noSidebarRoutes.includes(location.pathname) || isNotFoundPage);
+  // Check if the current location matches any route where the Sidebar should be visible
+  const isSidebarVisible = sidebarRoutes.includes(location.pathname);
 
   return (
     <div className='flex h-screen bg-gray-900 text-gray-100'>
@@ -38,10 +28,10 @@ function App() {
         <div className='absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 opacity-80' />
         <div className='absolute inset-0 backdrop-blur-sm' />
       </div>
-      
+
       {/* Conditionally render Sidebar */}
       {isSidebarVisible && <Sidebar />}
-      
+
       <div className='flex-1 overflow-y-auto'>
         <Routes>
           <Route path='/' element={<Splash />} />
