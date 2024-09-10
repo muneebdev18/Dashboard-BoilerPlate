@@ -1,4 +1,4 @@
-import { Route, Routes, useLocation } from 'react-router-dom';
+import { Route, Routes, useLocation, useMatch } from 'react-router-dom';
 import './App.css';
 import Dashboard from './pages/dashboard/Dashboard';
 import Products from './pages/products/Products';
@@ -16,11 +16,16 @@ import NotFound from './pages/notFound/NotFound';
 function App() {
   const location = useLocation();
 
-  // List of routes where Sidebar should be visible
-  const sidebarRoutes = ['/dashboard', '/product', '/users', '/settings'];
+  // Use useMatch to check if the current route matches any of the defined routes
+  const isDashboardMatch = useMatch('/dashboard');
+  const isDashboardDetailsMatch = useMatch('/dashboard/details');
+  const isProductMatch = useMatch('/product');
+  const isProductIdMatch = useMatch('/product/:id');
+  const isUsersMatch = useMatch('/users');
+  const isSettingsMatch = useMatch('/settings');
 
-  // Check if the current location matches any route where the Sidebar should be visible
-  const isSidebarVisible = sidebarRoutes.includes(location.pathname);
+  // Sidebar should be visible only for these exact matches
+  const isSidebarVisible = isDashboardMatch || isDashboardDetailsMatch || isProductMatch || isProductIdMatch || isUsersMatch || isSettingsMatch;
 
   return (
     <div className='flex h-screen bg-gray-900 text-gray-100'>
@@ -30,8 +35,8 @@ function App() {
       </div>
 
       {/* Conditionally render Sidebar */}
-      {isSidebarVisible && <Sidebar />}
 
+      {isSidebarVisible && <Sidebar />}
       <div className='flex-1 overflow-y-auto'>
         <Routes>
           <Route path='/' element={<Splash />} />
@@ -41,7 +46,9 @@ function App() {
           <Route path='/auth/newpassword' element={<NewPassword />} />
           <Route path='/auth/success' element={<Success />} />
           <Route path='/dashboard' element={<Dashboard />} />
+          <Route path='/dashboard/details' element={<Dashboard />} />
           <Route path='/product' element={<Products />} />
+          <Route path='/product/:id' element={<Products />} />
           <Route path='/users' element={<Users />} />
           <Route path='/settings' element={<Settings />} />
           {/* Catch-all route for 404 Not Found */}
