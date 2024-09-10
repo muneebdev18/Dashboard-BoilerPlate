@@ -1,7 +1,7 @@
 import Header from '../../components/header/Header'
 import { FiUser } from "react-icons/fi";
 import { FiUnlock } from "react-icons/fi";
-import Profile from '../../assets/images/logos/profileImg.png'
+import Profile from '../../assets/images/profileImg.png'
 import Footer from '../../components/footer/Footer'
 import {motion} from 'framer-motion'
 import { useState } from 'react';

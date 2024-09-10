@@ -1,4 +1,4 @@
-import Warn from '../../assets/images/logos/warning-sign-30915_1280.png'
+import Warn from '../../assets/images/warning-sign-30915_1280.png'
 import {motion} from 'framer-motion'
 const DeleteModal = ({setActiveModal,title}) => {
 

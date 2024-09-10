@@ -1,5 +1,5 @@
 import Lottie from "react-lottie";
-import SuccessAnimation from "../../data/Success-Animation - 1725549566408.json";
+import SuccessAnimation from "../../assets/animation/Success-Animation - 1725549566408.json";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 

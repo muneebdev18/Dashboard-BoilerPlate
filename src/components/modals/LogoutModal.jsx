@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import Logout from '../../assets/images/logos/log-out.png'
+import Logout from '../../assets/images/log-out.png'
 import {motion} from 'framer-motion'
 const LogoutModal = ({setActiveModal}) => {
 

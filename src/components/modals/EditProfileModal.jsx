@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import Profile from '../../assets/images/logos/profileImg.png'
+import Profile from '../../assets/images/profileImg.png'
 import { IoMdCamera } from 'react-icons/io'
 const EditProfileModal = ({ setEditProfileModal }) => {
     return (

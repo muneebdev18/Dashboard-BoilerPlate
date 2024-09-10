@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import DotLoader from '../../components/dotLoader/DotLoader'
 import {useNavigate} from 'react-router-dom'
-import Logo from '../../assets/images/logos/Group 1597883045.png'
+import Logo from '../../assets/images/Group 1597883045.png'
 const Splash = () => {
     const navigate = useNavigate() // Redirect to the desired page
     useEffect(()=>{

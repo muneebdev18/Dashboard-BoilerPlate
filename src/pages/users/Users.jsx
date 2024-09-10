@@ -5,7 +5,7 @@ import StatsCard from "../../components/statsCard/StatsCard"
 import { FaSearch, FaUsers, FaUserSlash, FaUserShield } from "react-icons/fa"
 import { MdDeleteForever, MdVerified } from "react-icons/md";
 import { MdNoAccounts } from "react-icons/md";
-import Profile from '../../assets/images/logos/profile-new.png'
+import Profile from '../../assets/images/profile-new.png'
 import { IoMdStats } from "react-icons/io"
 import Pagination from "../../components/pagination/Pagination"
 import { BiSolidEdit } from "react-icons/bi"

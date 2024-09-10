@@ -1,6 +1,5 @@
-import React from 'react';
 import Lottie from "react-lottie";
-import NotFoundAnimation from '../../data/notFound-animation.json';
+import NotFoundAnimation from '../../assets/animation/notFound-animation.json';
 import { Link } from 'react-router-dom';
 
 const NotFound = () => {
