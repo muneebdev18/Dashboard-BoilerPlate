@@ -7,7 +7,7 @@ const OTPVerification = () => {
 
   return (
     <motion.div initial={{opacity:0,y:0}} animate={{opacity:1,y:-30}} transition={{duration:1.1,delay:0.3}} className="flex flex-row justify-center items-center min-h-screen bg-gray-900 text-white">
-      <div className="xl:w-1/2 md:w-[500px] px-8 py-8 flex flex-col justify-center bg-white/10 backdrop-blur-lg border border-white/20 rounded-lg shadow-lg">
+      <div className="px-8 py-8 flex flex-col justify-center bg-white/10 backdrop-blur-lg border border-white/20 rounded-lg shadow-lg">
         <h1 className="text-4xl font-semibold mb-2 text-white">OTP Verification</h1>
         <p className="text-lg text-gray-400 mb-8">Enter the OTP sent to your email.</p>
 
@@ -18,7 +18,7 @@ const OTPVerification = () => {
             <OtpInput
               value={otp}
               onChange={setOtp}
-              numInputs={4}
+              numInputs={6}
               renderSeparator={<span className="text-gray-300 mx-2">-</span>}
               inputStyle={{
                 display: "flex",
@@ -45,12 +45,13 @@ const OTPVerification = () => {
           <Link to="/auth/newpassword">
             <button
               type="submit"
-              className="w-[450px] py-3 mt-8 bg-purple-600 hover:bg-purple-700 text-white rounded-md shadow-md transition duration-300"
+              className="w-full py-3 mt-8 bg-purple-600 hover:bg-purple-700 text-white rounded-md shadow-md transition duration-300"
             >
               Continue
             </button>
           </Link>
         </form>
+        <p className='mt-3 text-[18px]'>If Not Sent, Try Again to sent OTP By <span className='cursor-pointer text-blue-500 font-semibold'>Click Here</span></p>
       </div>
     </motion.div>
   );
