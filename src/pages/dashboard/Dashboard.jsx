@@ -30,7 +30,7 @@ const Dashboard = () => {
           <StatsCard title={"Conversion Rate"} value={"11.9%"} icon={IoMdStats} color="#10b981" />
         </motion.div>
         {/*-------- Stats Charts Section ----------*/}
-        <div className="flex-grow my-10 grid md:grid-cols-2 sm:grid-cols-1 gap-7 justify-between items-center">
+        <div className="flex-grow my-10 grid md:grid-cols-2 sm:grid-cols-1 xsm:grid-cols-1 gap-7 justify-between items-center">
           <LineChartOverview />
           <PieChartDist />
         </div>
