@@ -1,7 +1,7 @@
 
 import styles from './style.module.css';
 
-const Loader = ({ loaderStyle, width = '3.25em' }) => {
+const Loader = ({ loaderStyle, width = '2.85em' }) => {
     return (
         <div style={loaderStyle}>
             <svg style={{ width: width }} className={styles.svg} viewBox="25 25 50 50">

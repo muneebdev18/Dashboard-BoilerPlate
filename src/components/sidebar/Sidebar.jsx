@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import { Menu } from "lucide-react";
 import { TbLogout } from "react-icons/tb";
 
-import { SIDEBAR_ITEMS } from '../../data/data';
+import { SIDEBAR_ITEMS } from '../../utils/constants';
 import LogoutModal from '../modals/LogoutModal';
 const Sidebar = () => {
     const [isSidebarOpen, setSidebarOpen] = useState(true);
